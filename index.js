@@ -4,12 +4,17 @@ const cors = require('cors');
 require('dotenv').config()
 
 const MongoClient = require('mongodb').MongoClient;
-const uri = `mongodb+srv://${process.env.DB_User}:${process.env.DB_PASS}@cluster0.wawxe.mongodb.net/${process.env.DB_Name} ?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.wawxe.mongodb.net/${process.env.DB_NAME} ?retryWrites=true&w=majority`;
 
 const app = express()
 
 app.use(bodyParser.json());
 app.use(cors());
+
+app.get('/',(req,res)=>{
+     res.send('hello from db its working mong')
+})
+
 
 const port = 4000
 
